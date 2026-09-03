@@ -1,0 +1,146 @@
+:root {
+  --navy: #1b2a4a;
+  --navy-2: #243656;
+  --gold: #c4a35a;
+  --ink: #1a1a1a;
+  --muted: #5a6570;
+  --line: #d9dde3;
+  --paper: #f4f1ea;
+  --card: #fffef9;
+  --white: #ffffff;
+  --fact: #d1fae5;
+  --claim: #fde68a;
+  --mixed: #e0e7ff;
+  --spec: #fecaca;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}
+a { color: var(--navy); }
+header.site {
+  background: var(--navy);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 3px solid var(--gold);
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+header.site .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding-top: 14px; padding-bottom: 14px; }
+.brand { font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 13px; color: var(--gold); text-decoration: none; font-family: ui-sans-serif, system-ui, sans-serif; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 2px; }
+nav a {
+  color: #e8edf5;
+  text-decoration: none;
+  font: 600 13px/1 ui-sans-serif, system-ui, sans-serif;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+nav a:hover, nav a[aria-current="page"] { background: var(--navy-2); color: var(--white); }
+nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--gold); }
+.banner {
+  background: #fff8e8;
+  border-bottom: 1px solid #ead9a8;
+  color: #5c4a1e;
+  font: 14px/1.45 ui-sans-serif, system-ui, sans-serif;
+  padding: 10px 0;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 6px;
+  letter-spacing: -0.02em;
+}
+.lede { color: var(--muted); margin: 0 0 28px; font-style: italic; }
+article.story, .card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px 16px;
+  margin: 0 0 16px;
+}
+.kicker {
+  font: 700 11px/1 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+h2 { font-size: 1.25rem; margin: 6px 0 10px; color: var(--navy); }
+h3 { font: 700 12px/1.3 ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 14px 0 6px; }
+p { margin: 0 0 10px; }
+.status {
+  display: inline-block;
+  font: 700 11px/1 ui-sans-serif, system-ui, sans-serif;
+  color: var(--navy);
+  padding: 5px 9px;
+  border-radius: 999px;
+  text-align: center;
+  min-width: 7.5em;
+}
+.status.fact { background: var(--fact); }
+.status.claim { background: var(--claim); }
+.status.mixed { background: var(--mixed); }
+.status.speculation { background: var(--spec); }
+.status.locked, .status.done, .status.poc, .status.calendar, .status.open, .status.as { background: #eef1f5; }
+.story-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 15px;
+}
+th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+th {
+  background: var(--navy);
+  color: var(--white);
+  font: 600 12px/1.3 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+tr:nth-child(even) td { background: #f6f7f9; }
+.signal {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.signal:last-child { border-bottom: 0; }
+.how {
+  margin: 28px 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+footer.site {
+  margin-top: 48px;
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font: 13px/1.45 ui-sans-serif, system-ui, sans-serif;
+  border-top: 1px solid var(--line);
+}
+.legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+@media (max-width: 720px) {
+  .signal { grid-template-columns: 1fr; }
+  table, thead, tbody, th, td, tr { display: block; }
+  th { display: none; }
+  td { border-bottom: 0; padding: 4px 14px; }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font: 700 11px/1.3 ui-sans-serif, system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  tr { border-bottom: 1px solid var(--line); padding: 8px 0 12px; }
+}
